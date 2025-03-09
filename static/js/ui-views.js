@@ -55,6 +55,9 @@ function renderProduct(product) {
           </div>
           <div class="Item-title">${product.title}</div>
           <p class="Item-description">${product.description}</p>
+          <p class="Item-category">Category: ${product.category}</p>
+          <p class="Item-brand">Brand: ${product.brand}</p>
+          <p class="Item-stock">Stock: ${product.stock} units</p>
         </div>
     `;
     return div;
@@ -90,7 +93,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fetch and render products from internal JSON files (page0 - page19)
     let productPromises = [];
     for (let i = 0; i < 20; i++) {
-        productPromises.push(fetch(`static/data/page${i}.json`).then(res => res.json()));
+        productPromises.push(
+            fetch(`static/data/page${i}.json`)
+                .then(res => res.json())
+                .then(data => data.products) // Extract products array
+        );
     }
 
     Promise.all(productPromises)
