@@ -1,0 +1,31 @@
+/*
+
+  TODO: Make the grid show different quantity of items
+  based on the following "breakpoints":
+  
+                  min        max    grid
+  desktop        1100px             4 items
+  large tablet   900px     1100px   3 items
+  small tablet   600px      900px   2 items
+  mobile                    600px   1 item
+  
+*/
+
+
+
+.Products {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+/* Modal-window has already been tweaked to look better on mobile: */
+@media (max-width: 600px) {
+    .Modal-window {
+        /* Prevent text overflow by shrinking font */
+        font-size: 1.4rem;
+        text-align: left;
+        left: 0;
+    }
+}
+
+/* TODO: Add extra styling, if needed for hamburger menu */
